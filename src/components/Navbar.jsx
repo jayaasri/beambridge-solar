@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Sun } from 'lucide-react';
 import Button from './Button.jsx';
 import { NAV } from '../data/site.js';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,9 +21,13 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container navbar__inner">
-        <Link to="/" className="logo" aria-label="BeamBridge Solar home">
-          <span className="logo__mark"><Sun size={20} /></span>BeamBridge <b>Solar</b>
-        </Link>
+       <Link to="/" className="logo" aria-label="Beam Bridge Energy home">
+<span className="logo__mark">
+  <Logo />
+</span>
+
+
+</Link>
         <nav className={`navbar__links ${open ? 'is-open' : ''}`}>
           {NAV.map((n) => (
             <NavLink key={n.to} to={n.to} end className={({ isActive }) => (isActive ? 'active' : '')}>{n.label}</NavLink>
